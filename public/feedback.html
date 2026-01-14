@@ -6,30 +6,102 @@
     <title>Event Feedback</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-    <div class="container" style="max-width: 500px; margin-top: 50px;">
-        <h2 style="text-align: center;">📝 Event Feedback</h2>
-        <p style="text-align: center;">Fill this form to get your certificate instantly!</p>
-        
-        <form id="feedbackForm">
-            <label>Registered Email:</label>
-            <input type="email" id="email" placeholder="Enter the email you registered with" required>
+    <div class="form-container">
 
-            <label>Rate the Event:</label>
-            <select id="rating">
-                <option value="5">⭐⭐⭐⭐⭐ (Excellent)</option>
-                <option value="4">⭐⭐⭐⭐ (Good)</option>
-                <option value="3">⭐⭐⭐ (Average)</option>
-                <option value="2">⭐⭐ (Poor)</option>
-            </select>
+        <!-- Form Header (Card 1) -->
+        <div class="form-header">
+            <h1>📝 Event Feedback</h1>
+            <p>Provide us your valuable feedback. All fields marked with  <span class="required">*</span> are mandatory.</p>
+        </div>
 
-            <label>Comments:</label>
-            <textarea id="comment" rows="3" placeholder="Any suggestions?"></textarea>
+        <!-- Form Body (Question Cards) -->
+        <form action="#" method="post" id="feedbackForm">
+            <!-- Question 1: Name -->
+            <div class="question-card">
+                <label for="name">Full Name <span class="required">*</span></label>
+                <input type="text" id="name" name="name" required placeholder="Your answer">
+            </div>
 
-            <button type="submit" style="background-color: #6f42c1;">Submit & Get Certificate 📩</button>
+            <!-- Question 2: Email -->
+            <div class="question-card">
+                <label for="email">Registered Email <span class="required">*</span></label>
+                <input type="email" id="email" name="email" required placeholder="example@domain.com">
+            </div>
+
+            <!-- Question 3: Semester/Grade Level (Dropdown) -->
+            <div class="question-card">
+                <label for="semester">Current Semester <span class="required">*</span></label>
+                <select id="semester" name="semester" required>
+                    <option value="" disabled selected>Select your current status</option>
+                    <option value="1">Semester 1 </option>
+                    <option value="2">Semester 2 </option>
+                    <option value="3">Semester 3 </option>
+                    <option value="4">Semester 4 </option>
+                    <option value="5">Semester 5 </option>
+                    <option value="6">Semester 6 </option>
+                    <option value="7">Semester 7 </option>
+                    <option value="8">Semester 8 </option>
+                    <option value="alumni">Alumni </option>
+                </select>
+            </div>
+            <div class="question-card">
+                <label>Rate the Event:</label>
+                <select id="rating">
+                    <option value="5">⭐⭐⭐⭐⭐ (Excellent)</option>
+                    <option value="4">⭐⭐⭐⭐ (Good)</option>
+                    <option value="3">⭐⭐⭐ (Average)</option>
+                    <option value="2">⭐⭐ (Poor)</option>
+                </select>
+            </div>
+            <!-- Question 8: How Did You Hear About Us? DROPDOWN-->
+            <div class="question-card">
+                <label for="how">How was the overall experience <span class="required">*</span></label>
+                <select id="how" name="how" required>
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="friend">Can be better</option>
+                    <option value="google">Good</option>
+                    <option value="college">Excellent</option>
+                    <!--if selected other then provide a text entering space to write-->
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+              <!-- Question 4: Enrollment number -->
+              <div class="question-card">
+                <label for="enrollment">Enrollment Number<span class="required">*</span></label>
+                <input type="text" id="enrollment" name="enrollment" required placeholder="Your answer">
+            </div>
+            <!-- Question 5: Phone number -->
+             <div class="question-card">
+                <label for="phone">Phone Number <span class="required">*</span></label>
+                <input type="text" id="phone" name="phone" required placeholder="Your answer">
+            </div>
+            
+            <!-- Question 7: City -->
+            <!-- <div class="question-card">
+                <label for="city">City <span class="required">*</span></label>
+                <input type="text" id="city" name="city" required placeholder="Your answer">
+            </div> -->
+            
+            <!-- Question 7: Suggestions (Textarea Writing Box) -->
+            <div class="question-card">
+                <label for="suggestions">Suggestions / Feedback <span class="required">*</span></label>
+                <textarea id="comment" rows="3" name="suggestions" required placeholder="Please share your comments and suggestions here. This field is required."></textarea>
+            </div>
+
+            <!-- Submit Button Area -->
+            <div class="submit-area">
+                <button type="submit">Submit</button>
+                <p class="info-text">Never submit passwords through this form.</p>
+            </div>
         </form>
-    </div>
 
+        <div class="form-footer">
+            <p>Form powered by IPS Academy.</p>
+        </div>
+    </div>
     <script>
         document.getElementById('feedbackForm').addEventListener('submit', async (e) => {
             e.preventDefault();

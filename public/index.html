@@ -3,27 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register Student</title>
+    <title>Event Registration Form</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    
+    <div class="form-container">
 
-    <div class="container">
-        <h2>🎓 Register Student</h2>
-        <form id="addStudentForm">
-            <input type="text" id="name" placeholder="Full Name" required>
-            <input type="email" id="email" placeholder="Email Address" required>
-            
-            <label>Select Event:</label>
+        <!-- Form Header (Card 1) -->
+        <div class="form-header">
+            <h1>Registration Form</h1>
+            <p>Fill out the required information to secure your spot. All fields marked with a <span class="required">*</span> are mandatory.</p>
+        </div>
+
+        <!-- Form Body (Question Cards) -->
+        <form action="#" method="post"  id="addStudentForm">
+            <!-- Question 1: Name -->
+            <div class="question-card">
+                <label for="name">Full Name <span class="required">*</span></label>
+                <input type="text" id="name" name="name" required placeholder="Your answer">
+            </div>
+
+            <!-- Question 2: Email -->
+            <div class="question-card">
+                <label for="email">Email Address <span class="required">*</span></label>
+                <input type="email" id="email" name="email" required placeholder="example@domain.com">
+            </div>
+
+            <!-- Question 3: Semester/Grade Level (Dropdown) -->
+            <div class="question-card">
+                <label for="semester">Current Semester <span class="required">*</span></label>
+                <select id="semester" name="semester" required>
+                    <option value="" disabled selected>Select your current status</option>
+                    <option value="1">Semester 1 </option>
+                    <option value="2">Semester 2 </option>
+                    <option value="3">Semester 3 </option>
+                    <option value="4">Semester 4 </option>
+                    <option value="5">Semester 5 </option>
+                    <option value="6">Semester 6 </option>
+                    <option value="7">Semester 7 </option>
+                    <option value="8">Semester 8 </option>
+                    <option value="alumni">Alumni </option>
+                </select>
+            </div>
+
+            <!-- Question 8: How Did You Hear About Us? DROPDOWN-->
+            <div class="question-card">
+                <label for="how">How Did You Hear About Us? <span class="required">*</span></label>
+                <select id="how" name="how" required>
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="friend">Friend</option>
+                    <option value="google">Google</option>
+                    <option value="college">College</option>
+                    <!--if selected other then provide a text entering space to write-->
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="question-card">
+            <label for="event">Select Event:</label>
             <select id="event">
                 <option value="Coding">Coding</option>
                 <option value="Sports">Sports</option>
                 <option value="Music">Music</option>
             </select>
+            </div>
+              <!-- Question 4: Enrollment number -->
+              <div class="question-card">
+                <label for="enrollment">Enrollment Number<span class="required">*</span></label>
+                <input type="text" id="enrollment" name="enrollment" required placeholder="Your answer">
+            </div>
+            <!-- Question 5: Phone number -->
+             <div class="question-card">
+                <label for="phone">Phone Number <span class="required">*</span></label>
+                <input type="text" id="phone" name="phone" required placeholder="Your answer">
+            </div>
+            <!-- Question 6: Address -->
+            <div class="question-card">
+                <label for="address">Address <span class="required">*</span></label>
+                <input type="text" id="address" name="address" required placeholder="Your answer">
+            </div>
+            <!-- Question 7: City -->
+            <div class="question-card">
+                <label for="city">City <span class="required">*</span></label>
+                <input type="text" id="city" name="city" required placeholder="Your answer">
+            </div>
+            
 
-            <button type="submit">Register Now</button>
+            <!-- Submit Button Area -->
+            <div class="submit-area">
+                <button type="submit">Submit Registration</button>
+                <p class="info-text">Never submit passwords through this form.</p>
+            </div>
         </form>
+
+        <div class="form-footer">
+            <p>Form powered by IPS Academy.</p>
+        </div>
     </div>
 
     <script src="js/main.js"></script>
