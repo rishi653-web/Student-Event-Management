@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student List</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        // अगर चाबी (isAdmin) नहीं मिली, तो वापस Login पर भेजो
+        if (localStorage.getItem("isAdmin") !== "true") {
+            window.location.href = "login.html";
+        }
+    </script>
+</head>
+
+<body>
+    <nav style="display: flex; justify-content: space-between; align-items: center;">
+    <div>
+        <a href="index.html">Add Student</a>
+        <a href="students.html">View List</a>
+    </div>
+    
+    <button onclick="logout()" style="width: auto; background-color: #333; margin: 0;">Logout 🔒</button>
+</nav>
+
+     <script>
+    function logout() {
+        localStorage.removeItem("isAdmin"); // चाबी फेंक दो
+        window.location.href = "login.html"; // Login page पर जाओ
+    }
+    </script>
+    <div class="container" style="max-width: 1000px;">
+        <h2>📋 Registered Students</h2>
+
+        <div class="filter-bar">
+            <input type="text" id="searchInput" placeholder="Search by name...">
+            <select id="eventFilter">
+                <option value="All">All Events</option>
+                <option value="Coding">Coding</option>
+                <option value="Sports">Sports</option>
+                <option value="Music">Music</option>
+            </select>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Event</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="studentTableBody">
+                </tbody>
+        </table>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

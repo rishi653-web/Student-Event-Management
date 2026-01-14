@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Feedback</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container" style="max-width: 500px; margin-top: 50px;">
+        <h2 style="text-align: center;">📝 Event Feedback</h2>
+        <p style="text-align: center;">Fill this form to get your certificate instantly!</p>
+        
+        <form id="feedbackForm">
+            <label>Registered Email:</label>
+            <input type="email" id="email" placeholder="Enter the email you registered with" required>
+
+            <label>Rate the Event:</label>
+            <select id="rating">
+                <option value="5">⭐⭐⭐⭐⭐ (Excellent)</option>
+                <option value="4">⭐⭐⭐⭐ (Good)</option>
+                <option value="3">⭐⭐⭐ (Average)</option>
+                <option value="2">⭐⭐ (Poor)</option>
+            </select>
+
+            <label>Comments:</label>
+            <textarea id="comment" rows="3" placeholder="Any suggestions?"></textarea>
+
+            <button type="submit" style="background-color: #6f42c1;">Submit & Get Certificate 📩</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('feedbackForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const rating = document.getElementById('rating').value;
+            const comment = document.getElementById('comment').value;
+
+            alert("Checking details and generating certificate...");
+
+            const res = await fetch('http://localhost:3000/students/submit-feedback', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, rating, comment })
+            });
+
+            const data = await res.json();
+
+            if (res.ok) {
+                alert("🎉 Success! Certificate sent to your email.");
+                document.getElementById('feedbackForm').reset();
+            } else {
+                alert("❌ Error: " + data.error);
+            }
+        });
+    </script>
+</body>
+</html>

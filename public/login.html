@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body style="background-color: #2c3e50; display: flex; justify-content: center; align-items: center; height: 100vh;">
+
+    <div class="container" style="max-width: 400px; text-align: center;">
+        <h2>🔐 Admin Login</h2>
+        <p>Enter password to access dashboard</p>
+        
+        <form id="loginForm">
+            <input type="password" id="password" placeholder="Enter Password" required style="text-align: center;">
+            <button type="submit" style="background-color: #e74c3c;">Login</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const password = document.getElementById('password').value;
+
+            // --- PASSWORD SETTING ---
+            // आप अपना पासवर्ड यहाँ बदल सकते हैं
+            if (password === "admin123") {
+                // चाबी (Token) ब्राउज़र में सेव करें
+                localStorage.setItem("isAdmin", "true");
+                alert("Login Successful! ✅");
+                window.location.href = "students.html"; // Dashboard पर भेजें
+            } else {
+                alert("Wrong Password! ❌ Try again.");
+            }
+        });
+    </script>
+</body>
+</html>
